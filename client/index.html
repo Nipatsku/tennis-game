@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <title>Tennis with Niilo</title>
+    <style>
+      html {
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+        position: relative;
+      }
+      #joystick {
+        position: fixed;
+        left: 25vw;
+        top: 50vh;
+        width: 140px;
+        height: 140px;
+        transform: translate(-50%, -50%);
+      }
+      #joystick-aim {
+        position: fixed;
+        left: 75vw;
+        top: 50vh;
+        width: 140px;
+        height: 140px;
+        transform: translate(-50%, -50%);
+      }
+      .joystick-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .joystick-fg {
+        position: absolute;
+        margin-left: auto;
+        width: 100px;
+        height: 100px;
+        left: 20px;
+        top: 20px;
+      }
+      .hit {
+        position: fixed;
+        left: 50vw;
+        top: 50vh;
+        font-size: 10vh;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        color: white;
+        padding: 5vh;
+        border-radius: 50%;
+        user-select: none;
+        cursor: pointer;
+      }
+      #controls-play {
+        display: none;
+      }
+      #controls-serve {
+        display: none;
+      }
+      #controls-lob {
+        /* display: none; */
+      }
+      #lob {
+        margin: 0;
+        position: fixed;
+        left: 75vw;
+        top: 75vh;
+        transform: translate(-50%, -50%);
+        width: 140px;
+        height: 140px;
+        font-size: 5vh;
+        text-align: center;
+      }
+      .label {
+        position: absolute;
+        font-size: 4vh;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -140%);
+        margin: 0;
+        pointer-events: none;
+      }
+      #settings {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        width: 10vh;
+        cursor: pointer;
+      }
+      #settings-overlay {
+        display: none;
+        width: calc(100vw - 160px);
+        height: calc(100vh - 160px);
+        position: fixed;
+        top: 80px;
+        left: 80px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        color: white;
+        font-size: 4vh;
+      }
+      .setting-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+      }
+      input {
+        width: 50vw;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div id="controls-play">
+      <div id="joystick">
+        <img class="joystick-bg" draggable="false" src="joystick_bg.png" />
+        <img class="joystick-fg" draggable="true" src="joystick_fg.png" />
+        <p class="label">Move</p>
+      </div>
+      <div id="joystick-aim">
+        <img class="joystick-bg" draggable="false" src="joystick_bg.png" />
+        <img class="joystick-fg" draggable="true" src="joystick_fg.png" />
+        <p class="label">Aim</p>
+      </div>
+      <div id="controls-lob">
+        <button id="lob" class="hit">Lob</button>
+      </div>
+    </div>
+    <div id="controls-serve">
+      <button id="serve" class="hit">Serve!</button>
+    </div>
+    <img id="settings" src="settings.png" />
+    <div id="settings-overlay">
+      <h1>Settings</h1>
+      <div class="setting-row">
+        <p1>Name</p1>
+        <input type="input" id="setting-name" />
+      </div>
+      <div class="setting-team">
+        <p1>Team</p1>
+        <input type="radio" style="width:unset" id="team1" name="team" value="1"></input>
+        <label id="team1-label" for="team1">Team 1</label>
+        <input type="radio" style="width:unset" id="team2" name="team" value="2"></input>
+        <label id="team2-label" for="team2">Team 2</label>
+      </div>
+      <div class="setting-row">
+        <p1>Leave</p1>
+        <input type="button" id="setting-leave" />
+      </div>
+    <script src="index.js"></script>
+  </body>
+</html>
